@@ -16,4 +16,5 @@ cp -R dist/ _locally-running/
 mv _locally-running dist/_locally-running/
 
 echo "$_NAME serving"
-./node_modules/.bin/http-server dist/_locally-running/
+cd dist/_locally-running/
+../../node_modules/.bin/http-server
