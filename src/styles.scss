@@ -1,0 +1,31 @@
+@import "./styles/variables/colors";
+
+@mixin spinner($spinnerSize, $borderWidth) {
+  @keyframes clockwise {
+    to {
+      transform: rotate(360deg) translateZ(0);
+    }
+  }
+
+  position: absolute;
+  left: calc(50% - #{$spinnerSize/2});
+  width: $spinnerSize;
+  height: $spinnerSize;
+  animation: clockwise 0.5s linear infinite;
+  border-width: $borderWidth;
+  border-style: solid;
+  border-radius: 100%;
+  border-color: $color-curious-blue hsla(0, 0%, 100%, 0.75) hsla(0, 0%, 100%, 0.25) hsla(0, 0%, 100%, 0.25);
+  opacity: 1 !important;
+}
+
+body {
+  color: yellow;
+  background-color: black;
+}
+
+.static {
+  &__spinner {
+    @include spinner(30px, 3px);
+  }
+}
