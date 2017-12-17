@@ -5,10 +5,14 @@
   "scripts": {
     "critical": "./scripts/patchCritical.sh",
     "build": "ng build -prod --aot=true --build-optimizer",
+    "build:notMinified": "ng build -prod --aot=false --build-optimizer=false",
     "ng": "ng",
     "prebuild": "npm prune && npm install",
+    "prebuild:notMinified": "npm prune && npm install",
     "postbuild": "npm run critical",
-    "serveDist": "./scripts/serveDistLocally.sh"
+    "postbuild:notMinified": "npm run critical",
+    "serveDist": "./scripts/serveDistLocally.sh",
+    "serveDist:notMinified": "./scripts/serveDistLocallyNotMinified.sh"
   },
   "private": true,
   "dependencies": {
